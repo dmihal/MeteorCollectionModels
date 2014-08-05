@@ -69,3 +69,33 @@ CollectionModels includes few methods in each model to handle common actions
 To save a model, you can call the `.save()` method. This method will save your model to the Meteor server, and insert if it doesn't exist yet.
 
 Similarly, the `.delete()` method will remove your model from the collection, if it exists.
+
+
+Reference
+---------
+
+### CollectionModel
+
+####.new()
+Create a new Model object with default paramaters
+
+    Cars = new CollectionModel('cars',{...});
+    var car = Cars.new();
+    car.save() // Save model to server
+
+This model does not exist in the collection until `.save()` is called.
+
+####.find()
+Same as Collection.find()
+
+####.findOne()
+Same as Collection.findOne()
+
+
+### Model
+
+####.save()
+Save the model to the collection. The model will be updated if it already exists or inserted if it does not exist on the server.
+
+####.delete()
+The model will be removed from the collection
