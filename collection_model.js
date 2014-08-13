@@ -1,10 +1,11 @@
 CollectionModel = function(name, model, options){
+  'use strict';
 
   var defaultDoc = {
     _id: null
   };
 
-  transformer = function(doc){
+  var transformer = function(doc){
     if (doc){
       this._doc._id = doc._id;
     }
@@ -64,8 +65,6 @@ CollectionModel = function(name, model, options){
     }
   });
 
-
-
   options = options || {};
   options.transform = function(doc){
     return new transformer(doc);
@@ -86,7 +85,7 @@ CollectionModel = function(name, model, options){
     if (this._id){
       collection.remove(this._id);
     }
-  }
+  };
 
   return collection;
 };
