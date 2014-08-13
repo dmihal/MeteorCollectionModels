@@ -6,7 +6,7 @@ CollectionModel = function(name, model, options){
   };
 
   var transformer = function(doc){
-    if (doc){
+    if (doc && doc._id){
       this._doc._id = doc._id;
     }
     this._dependencies._id = new Deps.Dependency();
@@ -72,6 +72,7 @@ CollectionModel = function(name, model, options){
 
   var collection = new Meteor.Collection(name,options);
 
+  // Special methods
   transformer.prototype.save = function(){
     if (this._id) {
       collection.update(this._id, this);
@@ -85,6 +86,14 @@ CollectionModel = function(name, model, options){
     if (this._id){
       collection.remove(this._id);
     }
+  };
+
+  // Static methods
+  collection.new = function(doc){
+    if (doc && doc._id){
+      throw "New Model can not have pre-set ID";
+    }
+    return new transformer(doc);
   };
 
   return collection;
