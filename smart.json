@@ -1,0 +1,8 @@
+{
+  "name": "collection-model",
+  "description": "Make your Meteor documents behave like Models!",
+  "homepage": "https://github.com/dmihal/MeteorCollectionModels",
+  "author": "David Mihal <eastsideski@gmail.com>",
+  "version": "0.0.1",
+  "git": "https://github.com/dmihal/MeteorCollectionModels.git"
+}
